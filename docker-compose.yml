@@ -1,0 +1,8 @@
+services:
+  node-app:
+    build: .
+    ports:
+      - "9229:9229"  # Mapeia a porta de depuração
+    volumes:
+      - .:/usr/src/app  # Mapeia o código local para dentro do contêiner
+    command: node --inspect-brk=0.0.0.0:9229 index.js  # Inicia o Node.js com o flag de debug
